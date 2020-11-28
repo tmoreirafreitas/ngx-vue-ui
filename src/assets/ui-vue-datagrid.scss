@@ -1,0 +1,297 @@
+.ui-vue-datagrid {
+  table {
+    .clearfix:before,
+    .clearfix:after {
+      content: ".";
+      height: 0;
+      overflow: hidden;
+      vertical-align: middle;
+      white-space: nowrap;
+      -moz-text-overflow: ellipsis;
+      -ms-text-overflow: ellipsis;
+      -o-text-overflow: ellipsis;
+      text-overflow: ellipsis;
+    }
+    .clearfix:after {
+      clear: both;
+    }
+    .clearfix {
+      zoom: 1;
+    } /* IE < 8 */
+    .text-center {
+      text-align: center !important;
+    }
+    .wrapper {
+      // the wrapper acts as the submenus' positioned parent
+      position: relative;
+      .box-actions {
+        display: flex;
+        overflow: hidden;
+        justify-content: space-between;
+        vertical-align: top;
+        white-space: nowrap;
+        -moz-text-overflow: ellipsis;
+        -ms-text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        height: 100%;
+      }
+    }
+    th {
+      position: relative;
+      .btn-filter {
+        padding: 3px 9px;
+        transition: all 0.2s ease-in-out;
+      }
+      .checkbox {
+        background-color: #f0f0f0;
+        border-right: 1px solid #ced4da;
+        padding: 12px 15px;
+        display: flex;
+        align-items: center;
+      }
+      [type="checkbox"] {
+        width: 17px;
+        height: 17px;
+      }
+      .btn:active,
+      .btn:focus {
+        box-shadow: none;
+      }
+      .not-active {
+        pointer-events: none;
+        cursor: default;
+      }
+      > section > section {
+        flex-shrink: 0;
+        user-select: none;
+      }
+      .resizer {
+        position: absolute;
+        cursor: col-resize;
+        top: 0;
+        right: 0px;
+        width: 6px;
+        height: 100%;
+        background: repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 2px,
+          rgba(0, 0, 0, 0.05) 2px,
+          rgba(0, 0, 0, 0.05) 4px
+        );
+      }
+      .v-popover-content {
+        padding: 0 !important;
+      }
+    }
+
+    th:hover:not(.action) {
+      background-color: #dee2e6;
+      cursor: pointer;
+      .btn-filter:not(.btn-primary) {
+        background-color: #fff;
+      }
+      .resizer {
+        background: repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 2px,
+          rgba(0, 0, 0, 0.2) 2px,
+          rgba(0, 0, 0, 0.2) 4px
+        );
+      }
+    }
+    td {
+      overflow: hidden;
+      vertical-align: middle;
+      white-space: nowrap;
+      -moz-text-overflow: ellipsis;
+      -ms-text-overflow: ellipsis;
+      -o-text-overflow: ellipsis;
+      text-overflow: ellipsis;
+    }
+    td > * {
+      word-break: break-word;
+    }
+    th.sortable {
+      cursor: pointer;
+    }
+    th.checkbox-column {
+      input[type="checkbox"] {
+        margin: 0;
+        width: 20px;
+        height: 20px;
+        vertical-align: middle;
+      }
+    }
+    td.checkbox-column {
+      input[type="checkbox"] {
+        margin: 0 auto;
+        width: 20px;
+        height: 20px;
+        vertical-align: middle;
+      }
+    }
+    tr.summaries {
+      border-top: 2px solid #c1c1c1;
+
+      td {
+        background-color: #dee2e6;
+      }
+    }
+  }
+  table.table-not-resizing {
+    th.sortable:hover {
+      background-color: #dee2e6;
+      color: #666;
+      .btn-filter {
+        width: 50px;
+        height: 50px;
+        transform: scale(0.5);
+      }
+      .btn-filter:not(.btn-primary) {
+        background-color: #fff;
+      }
+    }
+    th.dragging {
+      background-color: #007bff !important;
+      color: #fff !important;
+    }
+  }
+  table.table-fixed {
+    table-layout: fixed;
+
+    td:not(.td-break-word) * {
+      word-break: keep-word;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      display: block;
+    }
+  }
+  table:not(.table-fixed) th.action {
+    white-space: nowrap;
+    width: 1%;
+  }
+  table.table-animated.table-animating td * {
+    opacity: 0.5;
+  }
+  table.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+  }
+
+  .empty-results {
+    border: 1px solid #dee2e6;
+    background-color: #f9f9f9;
+    color: #666;
+  }
+
+  .pagination {
+    max-height: 40px;
+  }
+
+  .pagination-box {
+    width: 100%;
+    max-height: 40px;
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: inherit;
+  }
+  .custom-pagination-info {
+    max-height: 40px;
+    margin-top: 0.4rem;
+  }
+  .custom-pagination {
+    z-index: 1;
+  }
+}
+
+.ui-vue-popover-body {
+  padding-top: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 0;
+  .box-filter {
+    margin-top: 10px;
+    margin-left: -12px;
+    margin-right: -12px;
+    margin-bottom: 0;
+    position: relative;
+
+    .search {
+      background-color: #f9f9f9;
+      .wrapper {
+        width: 90%;
+        margin: 10px auto;
+      }
+      .has-search .form-control {
+        padding-left: 2.375rem;
+      }
+
+      .has-search .form-control-feedback {
+        position: absolute;
+        z-index: 2;
+        display: block;
+        width: 2.375rem;
+        height: 2.375rem;
+        line-height: 2.375rem;
+        text-align: center;
+        pointer-events: none;
+        color: #aaa;
+        transform: scale(0.5);
+      }
+      .valueSelectedToFilter {
+        background-color: rgb(215, 239, 255);
+        border-bottom: 1px solid #b0d1f3;
+        border-top: 1px solid #b0d1f3;
+        min-height: 60px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+      }
+
+      .valueSelectedToFilter .btn {
+        margin: 10px 8px;
+        font-size: 16px;
+        word-break: keep-word;
+        -moz-text-overflow: ellipsis;
+        -ms-text-overflow: ellipsis;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        display: block;
+      }
+
+      .valueSelectedToFilter .btn i {
+        font-weight: bold;
+        font-size: 16px;
+      }
+
+      ul {
+        margin-top: 10%;
+        width: 100%;
+        height: 200px;
+        max-width: 300px;
+        font-size: 12pt;
+        padding: 7px 8px;
+        border: none;
+        overflow-y: auto;
+        overflow-x: hidden;
+        list-style-type: none;
+        margin-bottom: 0;
+        li {
+          list-style: none;
+          padding: 8px;
+        }
+        li:hover {
+          background-color: #007bff;
+          color: #f2f2f2;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
