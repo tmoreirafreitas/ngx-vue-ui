@@ -3,6 +3,9 @@ The best way for the rapid development of any application with a good set of com
 
 ## Available Scripts
 
+### `npm install -g @vue/cli`
+To install the new package, use one of the following commands. You need administrator privileges to execute.
+
 ### `npm run serve`
 
 Runs the app in the development mode.<br />
